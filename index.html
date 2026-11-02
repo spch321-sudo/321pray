@@ -26,7 +26,7 @@
 <div id="sheet" class="sheet" onclick="if(event.target===this)closeSheet()"><div class="in" id="sbody"></div></div>
 <div id="toast" class="toast"></div>
 <script>
-var APPVER = '1.0.202610200230-vp1023';
+var APPVER = '1.0.202610200230-vp1023-co1';
 var KEY = 'pr321';
 var SVC = { xz: 'https://xiaozhi-proxy.spch321.workers.dev', tts: 'https://azure-tts.spch321.workers.dev', model: 'claude-sonnet-4-6' };
 function $(s, r) { return (r || document).querySelector(s); }
@@ -128,11 +128,11 @@ setTimeout(fin, 1500);
 function onNewVersion(v) {
 if (!v || v === APPVER) return;
 UPD.target = v;
-if (BUSY) { UPD.pending = true; updBar(true); return; }
+if (BUSY || (window.CR321 && CR321.on())) { UPD.pending = true; updBar(true); return; }
 if (ssGet('updHard') === v) { updBar(true); return; }
 applyUpdate(ssGet('updTry') === v);
 }
-function updIdle() { if (UPD.pending && !BUSY) { UPD.pending = false; onNewVersion(UPD.target); } }
+function updIdle() { if (UPD.pending && !BUSY && !(window.CR321 && CR321.on())) { UPD.pending = false; onNewVersion(UPD.target); } }
 function checkUpdate(manual) {
 if (navigator.onLine === false) { if (manual) toast(T('netErr')); return; }
 try { if (UPD.reg) UPD.reg.update(); } catch (e) { }
@@ -153,7 +153,7 @@ track(reg.installing); track(reg.waiting);
 reg.addEventListener('updatefound', function () { track(reg.installing); });
 })['catch'](function () { });
 sw.addEventListener('message', function (e) { var d = e.data || {}; if (d.t === 'sw-updated' && d.v && d.v !== APPVER) onNewVersion(d.v); });
-sw.addEventListener('controllerchange', function () { if (UPD.target && !BUSY) reloadFresh(); });
+sw.addEventListener('controllerchange', function () { if (UPD.target && !BUSY && !(window.CR321 && CR321.on())) reloadFresh(); });
 }
 setTimeout(function () { checkUpdate(0); }, 2500);
 setInterval(function () { checkUpdate(0); }, 30 * 60 * 1000);
@@ -207,7 +207,7 @@ function withC(title, back_, f) { loading(title, back_); getC(function (c, err) 
 function render() {
 applyChrome();
 var pt = R.page && R.page.t;
-BUSY = (pt === 'lesson' || pt === 'studio' || pt === 'ws' || pt === 'min') || !!(TM.run) || !!(window.MX && MX.busy());
+BUSY = (pt === 'lesson' || pt === 'studio' || pt === 'ws' || pt === 'min') || !!(TM.run) || !!(window.MX && MX.busy()) || !!(window.CR321 && CR321.on());
 if (window.MX && pt !== 'studio') MX.leave();
 if (pt !== 'timer' && TM.run && !TM.bg) TM.bg = 1;
 updIdle();
@@ -4391,5 +4391,7 @@ if (document.readyState === 'loading') document.addEventListener('DOMContentLoad
   window.VPICK321 = { pick: pick, card: card, lang: lang, detect: detect, refs: function (t) { return toc().then(function () { return refs(t); }); } };
 })();
 </script>
+<script>window.CR321_CFG={pfx:'pr321-',mode:'R',names:{zh:'321禱告服事',zs:'321祷告服事',en:'321 Prayer Ministry'},R:{needOb:true,tabs:['home','course','pray','serve'],pages:{lesson:['n'],verse:['id'],meet:['i']},subs:{pray:['ws','vs','tm'],serve:['min','meet','rules']},defaults:{pray:'ws',serve:'list'},vcat:['pray','vs']}};</script>
+<script src="coread.js?v=1.0.202610200230-vp1023-co1"></script>
 </body>
 </html>
