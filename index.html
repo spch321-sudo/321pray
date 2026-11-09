@@ -44,7 +44,7 @@
 <div id="toast" class="toast"></div>
 <script src="xz2.js?v=xz1103"></script>
 <script>
-var APPVER = '1.0.202610200230-vp1023-co1-gx1103-xz1103-au1103-xzm1103-rf1105-cs1109-ub1109';
+var APPVER = '1.0.202610200230-vp1023-co1-gx1103-xz1103-au1103-xzm1103-rf1105-cs1109-ub1109-nv1109';
 var KEY = 'pr321';
 var SVC = { xz: 'https://xiaozhi-proxy.spch321.workers.dev', tts: 'https://azure-tts.spch321.workers.dev', model: 'claude-sonnet-4-6' };
 function $(s, r) { return (r || document).querySelector(s); }
@@ -142,9 +142,9 @@ var AUPD = (function () {
   };
   var U = { reg: null, target: '', pending: false, applying: 0, inited: 0 };
   var TX = {
-    zh: { newVer: '有新版本，點一下立即更新', updating: '正在更新到新版…', latest: '目前已是最新版 v', found: '找到新版本，正在更新…', foundBusy: '找到新版本，忙完就會自動更新', netErr: '無法檢查更新，請確認網路', checking: '檢查更新中…', done: '已更新到新版 v' },
-    zs: { newVer: '有新版本，点一下立即更新', updating: '正在更新到新版…', latest: '目前已是最新版 v', found: '找到新版本，正在更新…', foundBusy: '找到新版本，忙完就会自动更新', netErr: '无法检查更新，请确认网络', checking: '检查更新中…', done: '已更新到新版 v' },
-    en: { newVer: 'A new version is ready. Tap to update', updating: 'Updating to the new version…', latest: 'You are on the latest version v', found: 'New version found, updating…', foundBusy: 'New version found. It will update when you are idle', netErr: 'Cannot check for updates. Please check your connection', checking: 'Checking for updates…', done: 'Updated to version ' }
+    zh: { newVer: '有新版本，點一下立即更新', updating: '正在更新到新版…', latest: '目前已是最新版 v', found: '找到新版本，正在更新…', foundBusy: '找到新版本，忙完就會自動更新', netErr: '無法檢查更新，請確認網路', checking: '檢查更新中…', done: '已更新到最新版本' },
+    zs: { newVer: '有新版本，点一下立即更新', updating: '正在更新到新版…', latest: '目前已是最新版 v', found: '找到新版本，正在更新…', foundBusy: '找到新版本，忙完就会自动更新', netErr: '无法检查更新，请确认网络', checking: '检查更新中…', done: '已更新到最新版本' },
+    en: { newVer: 'A new version is ready. Tap to update', updating: 'Updating to the new version…', latest: 'You are on the latest version v', found: 'New version found, updating…', foundBusy: 'New version found. It will update when you are idle', netErr: 'Cannot check for updates. Please check your connection', checking: 'Checking for updates…', done: 'Updated to the latest version' }
   };
   function now() { return +new Date(); }
   function ver() { try { return String(CFG.ver()); } catch (e) { return ''; } }
@@ -294,7 +294,7 @@ var AUPD = (function () {
     if (U.inited) return; U.inited = 1;
     if (!/^https?:/.test(location.protocol)) return;
     try { if (/[?&]u=\d+/.test(location.search) && history.replaceState) { var s = location.search.replace(/([?&])u=\d+&?/, '$1').replace(/[?&]$/, ''); history.replaceState(null, '', location.pathname + s + location.hash); } } catch (e) { }
-    if (ssGet('auTry') && ssGet('auTry') === ver()) { ssSet('auTry', ''); ssSet('auHard', ''); setTimeout(function () { say(T('done') + ver()); }, 1200); }
+    if (ssGet('auTry') && ssGet('auTry') === ver()) { ssSet('auTry', ''); ssSet('auHard', ''); setTimeout(function () { say(T('done')); }, 1200); }
     register();
     setTimeout(function () { check(0); }, 2500);
     setInterval(function () { check(0); }, 30 * 60 * 1000);
@@ -4740,9 +4740,9 @@ if (document.readyState === 'loading') document.addEventListener('DOMContentLoad
 })();
 </script>
 <script>window.CR321_CFG={pfx:'pr321-',mode:'R',names:{zh:'321禱告服事',zs:'321祷告服事',en:'321 Prayer Ministry'},R:{needOb:true,tabs:['home','course','pray','serve'],pages:{lesson:['n'],verse:['id'],meet:['i']},subs:{pray:['ws','vs','tm'],serve:['min','meet','rules']},defaults:{pray:'ws',serve:'list'},vcat:['pray','vs']}};</script>
-<script src="coread.js?v=1.0.202610200230-vp1023-co1-gx1103-xz1103-au1103-xzm1103-rf1105-cs1109-ub1109"></script>
+<script src="coread.js?v=1.0.202610200230-vp1023-co1-gx1103-xz1103-au1103-xzm1103-rf1105-cs1109-ub1109-nv1109"></script>
 <script src="xzm.js?v=xzm1103"></script>
 <script>try{XZM.install(XZM.preset.lesson());}catch(e){}</script>
-<script src="cpar.js?v=1.0.202610200230-vp1023-co1-gx1103-xz1103-au1103-xzm1103-rf1105-cs1109-ub1109"></script>
+<script src="cpar.js?v=1.0.202610200230-vp1023-co1-gx1103-xz1103-au1103-xzm1103-rf1105-cs1109-ub1109-nv1109"></script>
 </body>
 </html>
