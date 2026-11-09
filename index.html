@@ -44,7 +44,7 @@
 <div id="toast" class="toast"></div>
 <script src="xz2.js?v=xz1103"></script>
 <script>
-var APPVER = '1.0.202610200230-vp1023-co1-gx1103-xz1103-au1103-xzm1103-rf1105-cs1109';
+var APPVER = '1.0.202610200230-vp1023-co1-gx1103-xz1103-au1103-xzm1103-rf1105-cs1109-ub1109';
 var KEY = 'pr321';
 var SVC = { xz: 'https://xiaozhi-proxy.spch321.workers.dev', tts: 'https://azure-tts.spch321.workers.dev', model: 'claude-sonnet-4-6' };
 function $(s, r) { return (r || document).querySelector(s); }
@@ -188,7 +188,7 @@ var AUPD = (function () {
     if (!on) { if (b && b.parentNode) b.parentNode.removeChild(b); return; }
     if (!b) {
       b = document.createElement('div'); b.id = 'updbar'; b.className = 'updbar';
-      b.style.cssText = 'position:fixed;left:0;right:0;top:0;z-index:2147483000;background:#B98A2E;color:#fff;font-weight:700;text-align:center;font-size:15px;cursor:pointer;padding:10px 16px;padding-top:calc(10px + env(safe-area-inset-top,0px))';
+      b.style.cssText = 'position:fixed;left:0;right:0;top:0;bottom:auto;transform:none;border-radius:0;white-space:normal;box-shadow:0 2px 10px rgba(0,0,0,.2);z-index:2147483000;background:#B98A2E;color:#fff;font-weight:700;text-align:center;font-size:15px;cursor:pointer;padding:10px 16px;padding-top:calc(10px + env(safe-area-inset-top,0px))';
       b.onclick = function () { apply(ssGet('auTry') === U.target); };
       document.body.appendChild(b);
     }
@@ -4740,9 +4740,9 @@ if (document.readyState === 'loading') document.addEventListener('DOMContentLoad
 })();
 </script>
 <script>window.CR321_CFG={pfx:'pr321-',mode:'R',names:{zh:'321禱告服事',zs:'321祷告服事',en:'321 Prayer Ministry'},R:{needOb:true,tabs:['home','course','pray','serve'],pages:{lesson:['n'],verse:['id'],meet:['i']},subs:{pray:['ws','vs','tm'],serve:['min','meet','rules']},defaults:{pray:'ws',serve:'list'},vcat:['pray','vs']}};</script>
-<script src="coread.js?v=1.0.202610200230-vp1023-co1-gx1103-xz1103-au1103-xzm1103-rf1105-cs1109"></script>
+<script src="coread.js?v=1.0.202610200230-vp1023-co1-gx1103-xz1103-au1103-xzm1103-rf1105-cs1109-ub1109"></script>
 <script src="xzm.js?v=xzm1103"></script>
 <script>try{XZM.install(XZM.preset.lesson());}catch(e){}</script>
-<script src="cpar.js?v=1.0.202610200230-vp1023-co1-gx1103-xz1103-au1103-xzm1103-rf1105-cs1109"></script>
+<script src="cpar.js?v=1.0.202610200230-vp1023-co1-gx1103-xz1103-au1103-xzm1103-rf1105-cs1109-ub1109"></script>
 </body>
 </html>
